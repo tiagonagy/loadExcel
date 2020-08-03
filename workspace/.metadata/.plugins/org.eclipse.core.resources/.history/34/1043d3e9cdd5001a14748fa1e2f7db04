@@ -1,0 +1,230 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.botao{
+	-fx-background-color:  #0C1019;
+	-fx-background-radius: 5.0 5.0 5.0 5.0 ;
+	-fx-font-family: "Sans Serif";
+	-fx-font-size: 12.0; 	
+	-fx-font-weight: bold;
+	-fx-text-fill: #FFF;
+	
+}
+.botao:hover{
+	-fx-background-color:  #5A79BB;
+	-fx-background-radius: 5.0 5.0 5.0 5.0 ;
+	-fx-text-fill: #FFF;
+}
+
+.botao:pressed{
+	-fx-background-color:  #1555BB;
+	-fx-background-radius: 5.0 5.0 5.0 5.0 ;
+	-fx-text-fill: #FFF;
+}
+
+.botaoControle{
+	-fx-background-color:  #5A79BB;
+	-fx-background-radius: 10.0 10.0 10.0 10.0;
+	-fx-font-family: "Sans Serif";
+	-fx-font-size: 20.0; 	
+	-fx-font-weight: bold;
+	-fx-text-fill: #FFF;
+	
+}
+.botaoControle:hover{
+	-fx-background-color:  #384B74;
+	-fx-background-radius: 10.0 10.0 10.0 10.0;
+	-fx-text-fill: #FFF;
+}
+
+.botaoControle:pressed{
+	-fx-background-color:  #243B66;
+	-fx-background-radius: 10.0 10.0 10.0 10.0;
+	-fx-text-fill: #FFF;
+}
+
+.combo:hover{
+	-fx-background-color:  #384B74;
+	-fx-background-radius: 5.0 5.0 5.0 5.0;
+}
+
+.combo{
+	-fx-background-color:  #5A79BB;
+	-fx-background-radius: 5.0 5.0 5.0 5.0;
+}
+
+/* afeta os itens na lista da caixa de combinação quando você abre o pop-up.--*/
+.combo .list-view .list-cell{
+	-fx-font-size: 14.0;    
+    -fx-text-fill: #000;
+}
+
+/* afeta o rótulo do item selecionado--*/
+.combo .list-cell{
+    -fx-text-fill: #FFF;
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 14.0;
+	-fx-text-alignment: left  ; 
+ }
+
+.labelPainelCtrlEsquerdo{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 14.0;
+	-fx-text-fill: #eceff1;	
+}  
+
+.labelTitulo{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 25.0;
+	-fx-text-fill: #eceff1;	
+}  
+
+.labelInfo{
+	-fx-font-family: "Sans Serif";
+	-fx-font-size: 17.0;
+	-fx-text-fill: #5A79BB;
+}  
+
+.labelDados{
+	-fx-font-family: "Sans Serif";
+	-fx-font-size: 15.0;
+	-fx-text-fill: #0C1019;
+}  
+
+
+.labelTarefa{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 20.0;
+	-fx-text-fill: #eceff1;	
+}  
+
+.labelTotais{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 50.0;
+	-fx-text-fill: #000;	
+}  
+
+.labelPercentual{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 20.0;
+	-fx-text-fill: #C0504D;	
+}  
+
+.labelMensagem{
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 20.0;
+	-fx-text-fill: #C0504D;	
+}  
+
+.paneTotais{
+		-fx-background-radius: 5.0 5.0 5.0 5.0;
+		-fx-background-color:  #E5E5E5;
+}
+
+.painelSuperior{
+	-fx-background-color:  #243B66;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+} 
+
+.painelCtrlEsquerdo{
+	-fx-background-color:  #243B66;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+}
+
+.painelBase{
+	-fx-background-color:  #FFF;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+}
+
+.displayTotais{
+	-fx-background-color:  #CDCDCD;
+	-fx-background-radius: 5.0 5.0 5.0 5.0;
+	-fx-font-family: "Sans Serif";
+	-fx-font-weight: bold;
+	-fx-font-size: 50.0;
+	-fx-text-fill: #000;	
+	
+}
+.imageView{
+	-fx-border-color:  #CDCDCD;	
+	-fx-border-radius: 2.0 2.0 2.0 2.0;
+
+}
+
+.hBox{
+	-fx-background-color:	#EAF3FC;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+}
+
+.linear-grad2{
+   -fx-background-color: linear-gradient(from 25.0% 100.0% to 60.0% 100.0%, #000, #5A79BB);
+}
+
+.painelCtrlEsquerdo2{
+   -fx-background-color:  #000;
+}
+
+.combo-operacao
+{
+  -fx-font: 10.0pt "Arial";
+  -fx-font-weight: bold;
+}
+
+.listView-list-cell 
+{
+  -fx-font: 10pt "Arial";
+  -fx-font-weight: bold;
+}
+
+
+.table-view .table-cell{
+    -fx-font-weight:bold;
+    -fx-font-size:12px;       
+    -fx-alignment:center;   
+
+}
+
+.jfx-text-field
+{
+    -jfx-focus-color: #5A79BB;   /* FOCO  */
+}
+
+.text-field
+{
+	-fx-font-family: "Verdana";
+	-fx-background-color: transparent;
+	-fx-text-fill: #5A79BB;/*INPUT-TEXT*/
+	-fx-font-size: 18.0;
+    -fx-prompt-text-fill: #FFFFFF; /*FLOATING LABEL*/
+    -fx-highlight-fill: #5A79BB; /*INPUT-TEXT selecionado*/
+}
+
+.text-field .input-line
+{
+    -fx-background-color: #5A79BB; /*Yellow - bottom bar*/
+}
+
+.labelValor
+{
+	-fx-font-family: "Verdana";
+	-fx-background-color: transparent;
+	-fx-text-fill: #5A79BB;
+	-fx-font-size: 14.0;
+	-fx-font-weight: bold;
+}
+
+.labelValor2
+{
+	-fx-font-family: "Courier New";
+	-fx-text-fill: #5A79BB;
+	-fx-font-size: 18.0;
+	-fx-font-weight: bold;
+}
+
+
+
