@@ -30,6 +30,9 @@ public class ExcelLoadDao {
 	public void createTempTable(String t_load_excel) {
 		PreparedStatement createTempTable = null;
 		try {
+			createTempTable = connection.prepareStatement("DROP TEMPORARY TABLE IF EXISTS tmpLoadExcel;");
+			createTempTable.execute();
+			createTempTable = null;
 			createTempTable = connection.prepareStatement(t_load_excel);
 			createTempTable.execute();
 		} catch (SQLException e) {
