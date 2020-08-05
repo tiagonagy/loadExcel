@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class SingleConnection {
 
-	private static String url = "jdbc:mysql://localhost:3306/posjava";
+	private static String url = "jdbc:mysql://localhost:3306/posjava?useTimezone=true&serverTimezone=UTC";
 	private static String user = "root";
 	private static String password = "1234";
 	private static Connection connection = null;
@@ -22,7 +22,7 @@ public class SingleConnection {
 
 		try {
 			if (connection == null) {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(url, user, password);
 				System.out.println("Conectado");
 			}
