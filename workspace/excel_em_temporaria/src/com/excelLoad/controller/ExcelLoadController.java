@@ -56,6 +56,8 @@ public class ExcelLoadController implements Initializable {
 	private static List<Row> rows;
 	private static String createTempTable;
 	private static String insertTempTable;
+	
+	private int conta;
 
 	public ExcelLoadController() {
 		thisStage = new Stage();
@@ -231,6 +233,7 @@ public class ExcelLoadController implements Initializable {
 				if (row.getCell(0).getCellType().toString() != "BLANK") {
 					List<Cell> cells = (List<Cell>) toList(row.cellIterator());
 					try {
+						conta ++;
 						ExcelLoadDao.getInstance().salvar(cells, insertTempTable);
 					} catch (SQLException e) {
 						e.printStackTrace();
@@ -242,8 +245,16 @@ public class ExcelLoadController implements Initializable {
 				JOptionPane.showInputDialog(null, "Erro ao inserir:" + e.getMessage());
 			}
 		});
-		JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+		JOptionPane.showMessageDialog(null, conta + " itens salvos com sucesso");
 		btnSalvar.setDisable(true);
+
+		try {
+			ExcelLoadDao.getInstance().insereTemp();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		try {
 			listViewTemp.setItems(FXCollections.observableArrayList(ExcelLoadDao.getInstance().dadosTemp()));

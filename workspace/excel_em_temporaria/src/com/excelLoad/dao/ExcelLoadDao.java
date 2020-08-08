@@ -120,4 +120,25 @@ public class ExcelLoadDao {
 
 		return resultadoTemp;
 	}
+
+	public void insereTemp() {
+		PreparedStatement preparedStatement = null;
+
+		try {
+			preparedStatement = connection.prepareStatement("INSERT INTO usuarios SELECT * FROM tmpLoadExcel");
+			preparedStatement.execute();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+	}
 }
