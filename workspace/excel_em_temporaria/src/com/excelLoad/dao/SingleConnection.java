@@ -22,7 +22,7 @@ public class SingleConnection {
 
 		try {
 			if (connection == null) {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(url, user, password);
 				System.out.println("Conectado");
 			}
