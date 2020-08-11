@@ -10,8 +10,6 @@ import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 
-import javafx.util.Callback;
-
 public class ExcelLoadDao {
 
 	private static Connection connection;
@@ -27,14 +25,32 @@ public class ExcelLoadDao {
 		return excelLoadDao;
 	}
 
+	public void dropTempTable() {
+		PreparedStatement dropTempTable = null;
+		try {
+			
+			dropTempTable = connection.prepareStatement("DROP TEMPORARY TABLE IF EXISTS tmpLoadExcel;");
+			dropTempTable.execute();
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				dropTempTable.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void createTempTable(String t_load_excel) {
 		PreparedStatement createTempTable = null;
 		try {
-			createTempTable = connection.prepareStatement("DROP TEMPORARY TABLE IF EXISTS tmpLoadExcel;");
-			createTempTable.execute();
-			createTempTable = null;
+			
 			createTempTable = connection.prepareStatement(t_load_excel);
 			createTempTable.execute();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -45,6 +61,7 @@ public class ExcelLoadDao {
 			}
 		}
 	}
+
 
 	public void salvar(List<Cell> cells, String tempTable) throws SQLException {
 
@@ -121,11 +138,11 @@ public class ExcelLoadDao {
 		return resultadoTemp;
 	}
 
-	public void insereTemp() {
+	public void insereTemp(String tabela) {
 		PreparedStatement preparedStatement = null;
 
 		try {
-			preparedStatement = connection.prepareStatement("INSERT INTO usuarios SELECT * FROM tmpLoadExcel");
+			preparedStatement = connection.prepareStatement("INSERT INTO "+tabela+" SELECT * FROM tmpLoadExcel");
 			preparedStatement.execute();
 
 		} catch (Exception e) {

@@ -23,21 +23,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.excelLoad.dao.ExcelLoadDao;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class ExcelLoadController implements Initializable {
 
@@ -52,6 +48,9 @@ public class ExcelLoadController implements Initializable {
 	private ListView<String> listViewExcel = new ListView<String>();
 	@FXML
 	private ListView<String> listViewTemp = new ListView<String>();
+	
+	@FXML 
+	private ComboBox<String> comboTemp;
 
 	private static List<Row> rows;
 	private static String createTempTable;
@@ -77,6 +76,8 @@ public class ExcelLoadController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		comboTemp.getItems().add("usuarios");
+		comboTemp.getItems().add("usuariosNew");
 	}
 
 	@FXML
@@ -173,10 +174,15 @@ public class ExcelLoadController implements Initializable {
 
 	private static List<?> toList(Iterator<?> iterator) {
 		return IteratorUtils.toList(iterator);
-
 	}
 
 	private static void criarTempExcel(List<Row> rows) {
+		
+		try {
+			ExcelLoadDao.getInstance().dropTempTable();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 
 		List<Cell> colunas = (List<Cell>) toList(rows.get(0).cellIterator());
 		StringBuilder cTempTable = new StringBuilder();
@@ -219,6 +225,7 @@ public class ExcelLoadController implements Initializable {
 
 		try {
 			ExcelLoadDao.getInstance().createTempTable(createTempTable);
+			ExcelLoadDao.getInstance().dadosTemp().forEach(System.out::println);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -247,9 +254,11 @@ public class ExcelLoadController implements Initializable {
 		});
 		JOptionPane.showMessageDialog(null, conta + " itens salvos com sucesso");
 		btnSalvar.setDisable(true);
+		
 
 		try {
-			ExcelLoadDao.getInstance().insereTemp();
+			ExcelLoadDao.getInstance().dadosTemp().forEach(System.out::println);
+			ExcelLoadDao.getInstance().insereTemp(comboTemp.getSelectionModel().getSelectedItem().toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
